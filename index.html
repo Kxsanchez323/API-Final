@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Movies</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7095af2a62.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <nav id="nav">
+        <ul class="nav__links">
+            <li class="nav__link">
+                <a href="#search" class="Blue link__hover-effect">Search</a>
+            </li>
+            <li class="nav__link">
+                <a href="#trending" class="Blue link__hover-effect">Trending</a>
+            </li>
+            <li class="nav__link">
+                <a href="#contact" class="Blue link__hover-effect">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="landing">
+        <figure class="landing__img--wrapper">
+            <img src="" alt="">
+            <h3 class="landing__header">Most Popular Movies, At The Most Popular Place</h3>
+        </figure>
+    </section>
+    <section id="search">
+        <div class="container search__container">
+            <div class="row">
+                <form class="search__wrapper" action="" id="searchForm">
+                    <input class="search__bar" type="text" name="searchInput" id="searchInput" placeholder="Browse Movies.." required>
+                    <button type="submit" class="search__btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="trending">
+        <div class="container">
+            <div class="row trending__row">
+                <h3 class="section__title">Trending Films</h3>
+                <div class="movies"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer__container">
+            <ul class="footer__links">
+                <li class="footer__link">
+                    <a class="Blue link__hover-effect" href="#nav">Home</a>
+                </li>
+                <li class="footer__link">
+                    <a class="Blue link__hover-effect" href="#nav">Search</a>
+                </li>
+                <li class="footer__link">
+                    <a class="Blue link__hover-effect" href="#nav">Trending</a>
+                </li>
+                <li class="footer__link">
+                    <a class="Blue link__hover-effect" href="#nav">Contact</a>
+                </li>
+            </ul>
+            <div class="footer__copyright">Copyright © 2023 Kevin Sanchez</div>
+        </div>
+    </footer>
+</body>
+</html>
