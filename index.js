@@ -1,49 +1,42 @@
-const url = "https://www.omdapi.com/?apikey=13389d6d&";
-const moviesList = document.querySelector(".movies");
-const formLabel =  document.querySelectorAll("label");
+// const moviesEl = document.querySelector(".movies");
+const search = localStorage.getItem("search")
+// async function main() {
 
-// current trending movies as of 8/19/2023
+//   const movies = await fetch(`https://www.omdbapi.com/?apikey=13389d6d&s=${search}&type=movie`);
+//   const moviesData = await movies.json();
+//   moviesEl.innerHTML = moviesData.Search.map((movie) => moviesHTML(movie)).join("");
+// }
 
-const trendingMoviesIds = [
-    "tt1517268",
-    "tt15398776",
-    "tt6791350",
-    "tt9224104",
-    "tt8589698",
-    "tt13603966",
-    "tt9362722",
-    "tt10172266",
-];
+// function moviesHTML(movie) {
+    
+//   return `<div class="movie">   
+//     <figure class="movie-img__wrapper no-cursor">
+//       <img
+//         src="${movie.Poster}"
+//         alt=""
+//         class="movie-img"
+//       />
+//     </figure>
+//     <div class="movie__title">${movie.Title}</div>
+//   </div>`;
+  
+// }
 
-function movieHtml(movie) {
-    return `<div class="movie">
-    <figure class="movie__img--wrapper">
-      <img
-        src="${movie.Poster}"
-        alt=""
-        class="movie__img" />
-    </figure>
-    <div class="movie__info">
-    <h3 class="movie__title">${movie.Title}
-    <br>
-    <span class="movie__year">${movie.Year}</span>
-    </h3>
-    </div>
-    </div> `
-}
-
-async function renderMovies(movieId) {
-    const movieRender = await fetch(url + `i=${movieId}`);
-    const movieData = await movieRender.json();
-
-    moviesList.innerHTML += movieHtml(movieData);
+function onSearchChange(event) {
+    const search = event.target.value
+    localStorage.setItem("search", search)
+    openMovies()
 }
 
 
-async function renderTrendingMovies() {
-    for (const movieId of trendingMoviesIds) {
-        await renderMovies(movieId);
-    }
+function openMenu() {
+    document.body.classList += " menu--open"
 }
+function closeMenu() {
+    document.body.classList.remove("menu--open")
+}
+// main();
 
-renderTrendingMovies();
+function openMovies() {
+    window.location.href = "movies.html"
+}
