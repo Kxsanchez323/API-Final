@@ -1,10 +1,8 @@
 const moviesEl = document.querySelector(".movies");
-
-// const search = localStorage.getItem("search")
 async function renderMovies(filter) {
 
     moviesEl.classList += " movies__loading"
-  const movies = await fetch(`https://www.omdbapi.com/?apikey=4158eeba&s=${search}&type=movie`);
+  const movies = await fetch(`https://www.omdbapi.com/?apikey=13389d6d&s=${search}&type=movie`);
   const moviesData = await movies.json();
   moviesEl.classList.remove("movies__loading")
   if ( filter === "OLD_TO_NEW") {
@@ -40,11 +38,5 @@ function moviesHTML(movie) {
   </div>`;
   
 }
-
-// function onSearchChange(event) {
-//     const search = event.target.value
-//     localStorage.setItem("search", search)
-//    window.location.href = `${window.location.origin}/movies.html`
-// }
 
 renderMovies();
