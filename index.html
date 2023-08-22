@@ -4,88 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Movies</title>
-    <link rel="stylesheet" href="./styles.css">
     <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
     <script
       src="https://kit.fontawesome.com/7095af2a62.js"
       crossorigin="anonymous"
     ></script>
 </head>
 <body>
-  <section id="landing">
-    <div class="nav__wrapper">
+    <main>
         <nav>
-            <a href="index.html"></a>
-            <img src="" alt="">
-
-            <ul class="nav__link--list">
-                <li class="nav__link">
-                    <a class="nav__link--anchor link__hover-effect" href="">Home</a>
-                </li>
-                <li class="nav__link">
-                    <a class="nav__link--anchor link__hover-effect click" href="movies.html">Browse Movies</a>
-                </li>
-                <li class="nav__link">
-                    <a class="nav__link--anchor nav__link--anchor-primary link__hover-effect" href="">Contact</a>
-                </li>
+          <div class="nav__container">
+            <ul class="nav__links">
+              <li>
+                <a
+                  href="#"
+                  class="nav__link link__hover-effect link__hover-effect--blue"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="nav__link link__hover-effect link__hover-effect--blue"
+                  >Movies</a
+                >
+              </li>
+              <li>
+                <a href="#" class="nav__link btn">Contact</a>
+              </li>
             </ul>
-            <button class="btn__menu click" onclick="openMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="btn__menu" onclick="openMenu()">
+              <i class="fas fa-bars"></i>
             </button>
-
             <div class="menu__backdrop">
-                <button class="btn__menu btn__menu--close click" onclick="closeMenu()">
-                <i class="fas fa-times click"></i></button>
-                <ul class="menu__links">
-                    <li class="menu__list">
-                        <a class="menu__link" onclick="closeMenu()" href="#">Home</a>
-                    </li>
-                    <li class="menu__list">
-                        <a class="menu__link" onclick="closeMenu()" href="movies.html">Browse Movies</a>
-                    </li>
-                    <li class="menu__list">
-                        <a class="menu__link" onclick="closeMenu()" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-    <header>
-        <div class="container">
-          <div class="row">
-            <div class="header__wrapper">
-              <h1 class="section__title">
-                America's<span class="blue">#1 most awarded</span> movie
-                streaming site
-              </h1>
-              <div class="input__wrapper">
-                <div class="search-bar__wrapper">
-                  <input
-                    class="search-bar"
-                    type="text"
-                    placeholder="Browse Movies.."
-                    onchange="onSearchChange(event)"
-                  />
-                </div>
-
-                <img src="" alt="" class="fas fa-search click" />
-              </div>
-              <h2 class="section__subtitle">
-                View your favourite movies
-                <span class="blue">on demand</span> from
-              </h2>
-              <figure class="header-img__wrapper">
-                <img
-                  class="header-img"
-                  src="./assets/download.png"
-                  alt=""
-                />
-              </figure>
+              <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                <i class="fas fa-times"></i>
+              </button>
+              <ul class="menu__links">
+                <li class="menu__list">
+                  <a href="." class="menu__link" onclick="closeMenu()">Home</a>
+                </li>
+                <li class="menu__list">
+                  <a href="#" class="menu__link" onclick="closeMenu()">Movies</a>
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="#"
+                    class="menu__link btn btn__menu--login"
+                    onclick="closeMenu()"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </header>
-  </section>
+          <div class="search__wrapper">
+            <h1>Watch your Favourite Movie here</h1>
+            <div class="input__wrap">
+              <input
+                type="text"
+                placeholder="Search by Movie Title"
+                onchange="onSearchChange(event)" />
+              <div class="search__icon">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+          </div>
+          <div class="overlay"></div>
+        </nav>
+  
+        <section id="movies">
+          <div class="container">
+            <div class="row">
+              <div class="results__wrapper">
+                <h1 class="title">Trending Now:</h1>
+  
+                <div class="movie__filter">
+                  <select id="sort" onchange="sortMovieYear(event)">
+                    <option value disabled selected>Sort</option>
+                    <option value="NEW_TO_OLD">New to Old</option>
+                    <option value="OLD_TO_NEW">Old to New</option>
+                  </select>
+                </div>
+              </div>
+              <div class="loading">
+                <i class="fas fa-spinner movies__loading--spinner"></i>
+              </div>
+              <div class="movie__results">
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/Barbie_2023_poster.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Barbie</h2>
+                  <p class="movie__year">21 July 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/Oppenheimer.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Oppenheimer</h2>
+                  <p class="movie__year">21 July 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/GOTG.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Gardians of the Galaxy: Volume 3</h2>
+                  <p class="movie__year">05 May 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/BB.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Blue Beetle</h2>
+                  <p class="movie__year">18 August 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/heart-of-stone.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Heart of Stone</h2>
+                  <p class="movie__year">11 August 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/RWRB.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Red, White & Royal Blue</h2>
+                  <p class="movie__year">11 August 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img class="movie__cover" src="./assets/Teenage_Mutant_Ninja_Turtles_-_Mutant_Mayhem.jpg" alt="" />
+                  </figure>
+                  <h2 class="movie__title">TMNT Mutant Mayhem</h2>
+                  <p class="movie__year">2 August 2023</p>
+                </div>
+                <div class="movie">
+                  <figure class="movie__cover--wrapper">
+                    <img
+                      class="movie__cover"
+                      src="./assets/Spiderman.jpg"
+                      alt="" />
+                  </figure>
+                  <h2 class="movie__title">Spider-Man: Across the Spider-Verse</h2>
+                  <p class="movie__year">2 June 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <footer>
+          <div class="container">
+            <div class="row row__footer">
+              <div class="footer__links">
+                <li class="footer__link">Home</li>
+                <li class="footer__link">About us</li>
+                <li class="footer__link">Contact</li>
+              </div>
+              <div class="copyright">Copyright &copy; 2023 Kevin Sanchez</div>
+            </div>
+          </div>
+        </footer>
+      </main>
 </body>
 </html>
